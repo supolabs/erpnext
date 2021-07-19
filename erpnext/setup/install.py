@@ -15,7 +15,7 @@ from erpnext.setup.default_energy_point_rules import get_default_energy_point_ru
 from six import iteritems
 
 default_mail_footer = """<div style="padding: 7px; text-align: right; color: #888"><small>Sent via
-	<a style="color: #888" href="http://erpnext.org">ERPNext</a></div>"""
+	<a style="color: #888" href="http://erpnext.org">SupoERP</a></div>"""
 
 
 def after_install():
@@ -37,7 +37,7 @@ def after_install():
 
 def check_setup_wizard_not_completed():
 	if cint(frappe.db.get_single_value('System Settings', 'setup_complete') or 0):
-		message = """ERPNext can only be installed on a fresh site where the setup wizard is not completed.
+		message = """SupoERP can only be installed on a fresh site where the setup wizard is not completed.
 You can reinstall this site (after saving your data) using: bench --site [sitename] reinstall"""
 		frappe.throw(message)   # nosemgrep
 
@@ -166,7 +166,7 @@ def add_standard_navbar_items():
 	navbar_settings.save()
 
 def add_app_name():
-	frappe.db.set_value('System Settings', None, 'app_name', 'ERPNext')
+	frappe.db.set_value('System Settings', None, 'app_name', 'SupoERP')
 
 def add_non_standard_user_types():
 	user_types = get_user_types_data()
