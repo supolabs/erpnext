@@ -613,3 +613,9 @@ global_search_doctypes = {
 additional_timeline_content = {
 	'*': ['erpnext.telephony.doctype.call_log.call_log.get_linked_call_logs']
 }
+
+permission_query_conditions = {
+	"Contact": "erpnext.utilities.address_and_contact.get_permission_query_conditions_for_contact",
+	"Address": "erpnext.utilities.address_and_contact.get_permission_query_conditions_for_address",
+	"Lead": "erpnext.crm.doctype.lead.lead.get_permission_query_conditions_for_lead"
+}

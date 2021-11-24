@@ -363,3 +363,9 @@ def daily_open_lead():
 	leads = frappe.get_all("Lead", filters = [["contact_date", "Between", [nowdate(), nowdate()]]])
 	for lead in leads:
 		frappe.db.set_value("Lead", lead.name, "status", "Open")
+
+def get_permission_query_conditions_for_lead(user):
+		if "System Manager" in frappe.get_roles(user):
+			return None
+		elif "Sales User" in frappe.get_roles(user):
+			return """(tabLead.owner = '{user}' or tabLead.lead_owner = '{user}') or (tabLead.name in (select tabLead.name from tabLead where (tabLead._assign = '["{user}"]' )))""".format(user=frappe.db.escape(user))
