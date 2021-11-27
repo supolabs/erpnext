@@ -365,7 +365,8 @@ def daily_open_lead():
 		frappe.db.set_value("Lead", lead.name, "status", "Open")
 
 def get_permission_query_conditions_for_lead(user):
-		if "System Manager" in frappe.get_roles(user):
-			return None
-		elif "Sales User" in frappe.get_roles(user):
-			return """(tabLead.owner = '{user}' or tabLead.lead_owner = '{user}') or (tabLead.name in (select tabLead.name from tabLead where (tabLead._assign = '["{user}"]' )))""".format(user=frappe.db.escape(user))
+	return None
+	# if "System Manager" in frappe.get_roles(user):
+	# 	return None
+	# elif "Sales User" in frappe.get_roles(user):
+	# 	return """(tabLead.owner = '{user}' or tabLead.lead_owner = '{user}') or (tabLead.name in (select tabLead.name from tabLead where (tabLead._assign = '["{user}"]' )))""".format(user=frappe.db.escape(user))
