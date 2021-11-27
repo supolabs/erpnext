@@ -368,4 +368,11 @@ def get_permission_query_conditions_for_lead(user):
 	if "System Manager" in frappe.get_roles(user):
 		return None
 	elif "Sales User" in frappe.get_roles(user):
-		return """tabLead.owner = {user} or tabLead.lead_owner = {user} or tabLead._assign = {user}""".format(user=frappe.db.escape(user))
+		return """tabLead.owner = {user} or tabLead.lead_owner = {user}""".format(user=frappe.db.escape(user))
+
+
+def permission_query_conditions_for_lead(doc, user=None, permission_type=None):
+	if "System Manager" in frappe.get_roles(user):
+		return None
+	elif "Sales User" in frappe.get_roles(user):
+		return """tabLead.owner = {user} or tabLead.lead_owner = {user}""".format(user=frappe.db.escape(user))

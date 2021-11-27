@@ -615,7 +615,9 @@ additional_timeline_content = {
 }
 
 permission_query_conditions = {
-	"Contact": "erpnext.utilities.address_and_contact.get_permission_query_conditions_for_contact",
-	"Address": "erpnext.utilities.address_and_contact.get_permission_query_conditions_for_address",
 	"Lead": "erpnext.crm.doctype.lead.lead.get_permission_query_conditions_for_lead"
+}
+
+has_permission = {
+	"Lead": "erpnext.crm.doctype.lead.lead.permission_query_conditions_for_lead"
 }
