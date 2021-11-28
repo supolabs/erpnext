@@ -372,4 +372,4 @@ def get_permission_query_conditions_for_lead(user):
 
 
 def permission_query_conditions_for_lead(doc, user=None, permission_type=None):
-	return doc.owner == user or doc.lead_owner == user
+	return False
