@@ -617,3 +617,7 @@ additional_timeline_content = {
 permission_query_conditions = {
 	"Lead": "erpnext.crm.doctype.lead.lead.get_permission_query_conditions_for_lead"
 }
+
+has_permission = {
+	"Lead": "erpnext.crm.doctype.lead.lead.has_permission"
+}
